@@ -2,6 +2,9 @@
 ![maven](https://img.shields.io/badge/C%2B%2B-passing-red)
 ![maven](https://img.shields.io/badge/python2-passing-yellow)
 ![maven](https://img.shields.io/badge/python2-passing-blue)
+
+This page contains the software and data used in the paper "Fast Enumeration of Large k-Plexes" authored by Alessio Conte, Donatella Firmani, Caterina Mordente, Maurizio Patrignani, and Riccardo Torlone and published at the 23rd SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2017).
+
 # Environment
 * Linux
 * python2 **( e.g. python2.7 )**：跑 berlowitz 代码
