@@ -21,6 +21,7 @@ This project contains the software used in the paper "Fast Enumeration of Large 
     - 可直接命令行安装：`pip install snap-stanford`
     - 下载：**https://snap.stanford.edu/snappy/release/**
     - 执行 **( e.g. `ubtuntu 18.04 & py2.7` )**：
+
         ```
         tar zxvf snap-stanford-5.0.0-5.0-ubuntu18.04.2-x64-py2.7.tar.gz
         cd snap-stanford-5.0.0-5.0-ubuntu18.04.2-x64-py2.7
@@ -49,6 +50,7 @@ g++ -std=c++11 Coding.cpp -o Coding
 * tar.gz 解压：`tar zxvf XXX.tar.gz`
 * zip 解压：`unzip XXX.zip`
 * vim 编辑：
+
     ```
     vim /usr/bin/yum 
     i 
@@ -76,7 +78,9 @@ g++ -std=c++11 Coding.cpp -o Coding
 * 修改命令行参数（ `argparse` & `parser` ）
 * 注释
     - 169行：`print("%s remove %d edges" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), len(cond)))`
-    - 246行：`print("%s started %d threads (batch_size=%d, procnum=%d)" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i+1, batch_size, procnum), file = sys.stderr)`
+    - 246行：
+        ```print("%s started %d threads (batch_size=%d, procnum=%d)" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i+1, batch_size, procnum), file = sys.stderr)
+        ```
     - 250行：`print("%s ended thread %d" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i), file = sys.stderr)`
 * 增加文件比较
     - 29行：`fileNameStr = args.fileName`
@@ -84,11 +88,11 @@ g++ -std=c++11 Coding.cpp -o Coding
 * K 从命令行接收：
     - 27行：`k_cmd = args.k`
     - 304行：`for k in [k_cmd]`
-* 注释了 m 的运算规则，从命令行接收：
+* 注释 m 的运算规则，从命令行接收：
     - 318行：`m  = max(k**2, math.ceil(fatt))`
     - 401行：`m  = max(k**2, math.ceil(fatt))`
     - 28行：`m = args.m`
-* 注释了 413 行：`print(P, file=sys.stderr)`
+* 注释 413 行：`print(P, file=sys.stderr)`
 
 # References
 * http://patrignani.dia.uniroma3.it/large-k-plexes/
