@@ -15,8 +15,11 @@ This project contains the software used in the paper "Fast Enumeration of Large 
 
 # Prepare
 * 关于python2
+
     - 如果你的 python2 不是 2.7 版本，需要在 `kplexes.py`(大概在 108 行，路径：`Topk-Coding/kplexes.py` )的 `call` 函数中修改对应的 `py2` 版本号
-    [ `call("python2.7 %s %s" % (berexe, argstring), shell=True, stdout=DEVNULL)` ]
+        ```
+        call("python2.7 %s %s" % (berexe, argstring), shell=True, stdout=DEVNULL)
+        ```
 * 安装 **[snap.py](https://snap.stanford.edu/snappy/)** 库
     - 可直接命令行安装：`pip install snap-stanford`
     - 下载：**https://snap.stanford.edu/snappy/release/**
@@ -42,7 +45,10 @@ g++ -std=c++11 Coding.cpp -o Coding
 ```
 
 # Common Commands
-* 查看系统发行版本：`cat /etc/redhat-release`
+* 查看版本当前**操作系统内核**信息：`uname -a`
+* 查看当前**操作系统版本**信息：`cat /proc/version`
+* 查看版本当前**操作系统发行版**信息：`cat /etc/issue`
+* 查看 cpu 信息：`cat /proc/cpuinfo`
 * 查看 python 具体版本：`python --version`
 * 查看 python 具体安装路径：`which python`
 * 查看 pip 具体版本： `pip --version`
@@ -69,6 +75,7 @@ g++ -std=c++11 Coding.cpp -o Coding
 # Pay Attention
 * `Coding.cpp` 中的 `ss_python_cmd` 文件后缀名要与 `kplexes.py` 中的 `extension` 匹配
 * 执行命令前需要创建四个文件夹，否则会报错
+
     - mkdir working_dir
     - mkdir input_data
     - mkdir input_data_c
@@ -77,6 +84,7 @@ g++ -std=c++11 Coding.cpp -o Coding
 # Update kplexes.py
 * 修改命令行参数（ `argparse` & `parser` ）
 * 注释
+
     - 169行：`print("%s remove %d edges" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), len(cond)))`
     - 246行：
         ```

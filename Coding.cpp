@@ -89,24 +89,15 @@ void ReadFile(string fileName){
             ver = atoi(res[2].c_str());
             edge = atoi(res[3].c_str());
 
+            #ifdef LOCAL
             cout << "ver : " << ver << " edge : " << edge << endl;
+            #endif
         }else if(str[0] == 'e'){
             vector<string> res = Split(str, " ");
-            // int len = res.size();
 
             int x, y;
             x = atoi(res[1].c_str());
             y = atoi(res[2].c_str());
-
-            // string t1 = res[len - 1];
-            // stringstream ss1;
-            // ss1 << t1;
-            // ss1 >> x;
-
-            // string t2 = res[len - 2];
-            // stringstream ss2;
-            // ss2 << t2;
-            // ss2 >> y;
 
             new_g_vertex_set.insert(x);
             new_g_vertex_set.insert(y);
@@ -1140,30 +1131,40 @@ int main(int argc, char **argv) {
         int size = kplexNumResults_vector[i].size();
         mp_kplex_size[i] = size;
         for(int j = 0;j < kplexNumResults_vector[i].size();j++){
+            #ifdef LOCAL
             cout << kplexNumResults_vector[i][j] << " ";
+            #endif
         }
+        #ifdef LOCAL
         puts("");
+        #endif
     }
     // for(int i = 1; i <= temp_K; i++) {
 	// 	cout << i << " " << mp_kplex_size[i] << endl;
 	// }
     vector< pair<int, int> > vec_kplex_size(mp_kplex_size.begin(), mp_kplex_size.end());
 	sort(vec_kplex_size.begin(), vec_kplex_size.end(), cmp);
+    #ifdef LOCAL
     puts("");
+    #endif
 	for(int i = 1; i <= temp_K; i++) {
 		int temp = vec_kplex_size[i - 1].first;
+        cout << "[ ";
 		for(int j = 0; j < kplexNumResults_vector[temp].size(); j++) {
 			cout << kplexNumResults_vector[temp][j] << " ";
 		}
+        cout << "]";
 		puts("");
 	}
 
     if(allNum < K){
         int temp = K - allNum;
         for(int i = 1;i <= temp;i++){
+            cout << "[ ";
             for(int j = 0;j < reduceEdges[i].size();j++){
                 cout << reduceEdges[i][j] << " ";
             }
+            cout << "]";
             puts("");
         }
     }
