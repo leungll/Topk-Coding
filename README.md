@@ -1,7 +1,7 @@
 # Topk-Coding
 ![maven](https://img.shields.io/badge/C%2B%2B-passing-red)
-![maven](https://img.shields.io/badge/Python-2-blue)
-![maven](https://img.shields.io/badge/python-3-yellow)
+![maven](https://img.shields.io/badge/python2-passing-yellow)
+![maven](https://img.shields.io/badge/python2-passing-blue)
 # Environment
 * Linux
 * python2 **( e.g. python2.7 )**：跑 berlowitz 代码
