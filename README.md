@@ -79,7 +79,8 @@ g++ -std=c++11 Coding.cpp -o Coding
 * 注释
     - 169行：`print("%s remove %d edges" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), len(cond)))`
     - 246行：
-        ```print("%s started %d threads (batch_size=%d, procnum=%d)" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i+1, batch_size, procnum), file = sys.stderr)
+        ```
+        print("%s started %d threads (batch_size=%d, procnum=%d)" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i+1, batch_size, procnum), file = sys.stderr)
         ```
     - 250行：`print("%s ended thread %d" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i), file = sys.stderr)`
 * 增加文件比较
