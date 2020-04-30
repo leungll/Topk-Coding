@@ -89,3 +89,7 @@ g++ -std=c++11 Coding.cpp -o Coding
     - 401行：`m  = max(k**2, math.ceil(fatt))`
     - 28行：`m = args.m`
 * 注释了 413 行：`print(P, file=sys.stderr)`
+
+# References
+* http://patrignani.dia.uniroma3.it/large-k-plexes/
+* https://github.com/ddfir/kplexes-meta
