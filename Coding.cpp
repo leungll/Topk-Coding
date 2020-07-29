@@ -45,6 +45,7 @@ vector<int> reduceEdges[MAXN];
 //AllNum of KplexNumResults
 vector<int> kplexNumResults_vector[MAXN];
 map<int, int> mp_kplex_size;
+stack<string> splexStack;
 
 //Number of Vertex
 int ver;
@@ -567,12 +568,40 @@ bool cmp(const pair<int, int>& a, const pair<int, int>& b) {
     return a.second > b.second;
 }
 
+string GetSolutionFromSplex(string file) {
+    ifstream inf(file);
+    if (!inf) {
+        cerr << "Can not open file from GetSolutionFromSplex!\n";
+    }
+    string oneline;
+    while (inf.peek() != EOF) {
+        getline(inf, oneline);
+        splexStack.push(oneline);
+    }
+    return splexStack.top();
+}
+
+int GetS(string file) {
+    string solutionFromSplex = GetSolutionFromSplex(file);
+    char * strs = new char[solutionFromSplex.length() + 1];
+    strcpy(strs, solutionFromSplex.c_str());
+    const char *sep = ": ";
+    char *p = strtok(strs, sep);
+    int cnt = 0;
+    while(p) {
+        printf("%s\n", p);
+        p = strtok(NULL, sep);
+        cnt++;
+    }
+    return cnt - 1;
+}
+
 int main(int argc, char **argv) {
 
     int K = atoi(argv[2]);
     int _k = K;
     string strFilePath = argv[1];
-    int fileCnt = 0;
+    int fileCnt = 0, fileCntSplex = 0;
     bool isReduce = false;
 
     memset(reduce_vertex_vis, false, sizeof(reduce_vertex_vis));
@@ -1014,12 +1043,46 @@ int main(int argc, char **argv) {
         cout << "bound : " << bound << endl; 
         cout << "retain_n.size / (bound - 1) : " << temp << endl;
         #endif
-        double temp_s = pow( temp, (bound - 2));
-        S = abs(floor(temp_s));
-        // S = 7;
-        if(floor(temp_s) > 1e6){
-            S = 1e6;
+        // double temp_s = pow( temp, (bound - 2));
+        // S = abs(floor(temp_s));
+        // // S = 7;
+        // if(floor(temp_s) > 1e6){
+        //     S = 1e6;
+        // }
+
+        #ifdef LOCAL
+        puts("-------------------------");
+        #endif 
+        fileCntSplex++;
+        ofstream ofs_splex;
+        string updateFileName_splex = "input_data_splex/" + fileName + "_splex_" + to_string(fileCntSplex) + ".clq";
+        ofs_splex.open(updateFileName_splex, ios::out);
+        ofs_splex << "p edge " << ver << " " << update_g_edge << endl;
+        for(int i = 1;i <= ver;i++){ 
+            for(int j = 1;j <= ver;j++){
+                if(i < j){
+                    if(update_g[i][j]){
+                        ofs_splex << "e " << i << " " << j << endl;
+                    }
+                }
+            }
         }
+        ofs_splex.close();
+
+        #ifdef LOCAL
+        puts("-------------------------");
+        #endif 
+        string splexStr = "./splex -f " + updateFileName_splex + " -s 1 -t 60";
+        string splexStrCmd = splexStr + " > splex_ans/" + fileName + "_splex_" + to_string(fileCntSplex) + "_ans.txt";
+        #ifdef LOCAL
+        cout << splexStrCmd << endl;
+        #endif
+        system(splexStrCmd.c_str());  
+
+        string splexAns = "splex_ans/" + fileName + "_splex_" + to_string(fileCntSplex) + "_ans.txt";
+        cout << GetSolutionFromSplex(splexAns) << endl;
+        S = GetS(splexAns);
+
         #ifdef LOCAL
         cout << "S : " << S << endl;
         #endif
@@ -1030,7 +1093,7 @@ int main(int argc, char **argv) {
         fileCnt++;
         ofstream ofs1;
         string filePath = "input_data/";
-        string updateFileName_py = fileName + "_py_" + to_string(fileCnt) + ".txt";
+        string updateFileName_py = fileName + "_py_" + to_string(fileCnt) + ".aa";
         ofs1.open(filePath + updateFileName_py, ios::out);
         for(int i = 1;i <= ver;i++){ 
             for(int j = 1;j <= ver;j++){
@@ -1168,5 +1231,8 @@ int main(int argc, char **argv) {
             puts("");
         }
     }
+
+    printf("Time used = %.2fs\n", (double)clock() / CLOCKS_PER_SEC);
+
     return 0;
 }

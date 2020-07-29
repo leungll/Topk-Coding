@@ -30,7 +30,7 @@ fileNameStr = args.fileName
 
 indir     = "input_data"
 workdir   = "working_dir"
-extension = ".txt"
+extension = ".aa"
 berin     = "%s/%s" % (workdir, "block.edgelist")
 berout    = "%s/%s" % (workdir, "out")
 berexe    = "berlowitz/kplex.py"
@@ -290,7 +290,7 @@ def experiments():
 
     all_files = (os.path.join(basedir, filename) for basedir, dirs, files in os.walk(indir) for filename in files)
     sorted_files = sorted(all_files, key = os.path.getsize)
-    # print(sorted_files)
+    print(sorted_files)
 
     # print(fileNameStr)
     for filename in sorted_files:
@@ -300,7 +300,7 @@ def experiments():
                 G  = nx.read_edgelist(filename)
                 #G.remove_edges_from(G.selfloop_edges())
                 gf = os.path.basename(filename).split('.')[0]                
-                
+            
                 for k in [k_cmd]:
                     signal.alarm(timeout)
                     try:   
@@ -312,11 +312,11 @@ def experiments():
                             file = log_file)
                         log_file.flush()
                     signal.alarm(0) 
-                
+
                     ## filtering stats ##
                     for (fatt,label) in []:#[(100,'100'), (50,'50'), (10,'10')]:
-                        #m  = max(k**2, math.ceil(fatt))
-                        #m = 3
+                        # m = 0
+
                         signal.alarm(timeout)
                         try:   
                             core_time = time.time()
@@ -399,7 +399,7 @@ def experiments():
                     ## enumeration stats ##
                     for (fatt,label) in [(1.0*o,'100%'), (0.75*o,'75%'),(0.5*o,'50%')]: #(o+1,'max'), 
                         #m  = max(k**2, math.ceil(fatt))                    
-                        #m = 3
+                        #m = 3                
                         
                         ##Filter only
                         size_H, redundant, max_time = 0, 0, 0
