@@ -16,7 +16,7 @@ This project contains the software used in the paper "Fast Enumeration of Large 
 # Prepare
 * 关于python2
 
-    - 如果你的 python2 不是 2.7 版本，需要在 `kplexes.py`(大概在 108 行，路径：`Topk-Coding/kplexes.py` )的 `call` 函数中修改对应的 `py2` 版本号
+    - 如果你的 python2 不是 2.7 版本，需要在 `kplexes.py`(代码大概在 108 行，路径：`Topk-Coding/kplexes.py` )的 `call` 函数中修改对应的 `py2` 版本号
 
         ```
         call("python2.7 %s %s" % (berexe, argstring), shell=True, stdout=DEVNULL)
@@ -24,7 +24,7 @@ This project contains the software used in the paper "Fast Enumeration of Large 
 * 安装 **[snap.py](https://snap.stanford.edu/snappy/)** 库
     - 可直接命令行安装：`pip install snap-stanford`
     - 下载：**https://snap.stanford.edu/snappy/release/**
-    - 执行 **( e.g. `ubtuntu 18.04 & py2.7` )**：
+    - 执行安装 **( e.g. `ubtuntu 18.04 & py2.7` )**：
 
         ```
         tar zxvf snap-stanford-5.0.0-5.0-ubuntu18.04.2-x64-py2.7.tar.gz
@@ -32,12 +32,14 @@ This project contains the software used in the paper "Fast Enumeration of Large 
         sudo python2.X setup.py install
 
         ```
-        ![JqrUe0.png](https://s1.ax1x.com/2020/04/30/JqrUe0.png)
+
+        ![Snap.py-on-Linux](https://cdn.jsdelivr.net/gh/leungll/ImgHosting/img/Snap.py-on-Linux.jpg)
 # Compile & Run
 
 ```
 cd Topk-Coding
 mkdir working_dir
+mkdir splex_ans
 mkdir input_data
 mkdir input_data_c
 mkdir ans
@@ -75,9 +77,10 @@ g++ -std=c++11 Coding.cpp -o Coding
 
 # Pay Attention
 * `Coding.cpp` 中的 `ss_python_cmd` 文件后缀名要与 `kplexes.py` 中的 `extension` 匹配
-* 执行命令前需要创建四个文件夹，否则会报错
+* 执行命令前需要创建 `5` 个文件夹，否则会报错
 
     - mkdir working_dir
+    - mkdir splex_ans
     - mkdir input_data
     - mkdir input_data_c
     - mkdir ans
@@ -93,18 +96,22 @@ g++ -std=c++11 Coding.cpp -o Coding
         print("%s started %d threads (batch_size=%d, procnum=%d)" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i+1, batch_size, procnum), file = sys.stderr)
         ```
     - 250行：`print("%s ended thread %d" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i), file = sys.stderr)`
-* 增加文件比较
-    - 29行：`fileNameStr = args.fileName`
-    - 297行：`if filename == fileNameStr`
-* K 从命令行接收：
+* `k` 从命令行接收：
     - 27行：`k_cmd = args.k`
     - 304行：`for k in [k_cmd]`
-* 注释 m 的运算规则，从命令行接收：
+* 注释 `m` 的运算规则，从命令行接收：
     - 318行：`m  = max(k**2, math.ceil(fatt))`
     - 401行：`m  = max(k**2, math.ceil(fatt))`
     - 28行：`m = args.m`
-* 注释 413 行：`print(P, file=sys.stderr)`
+* 增加文件比较
+    - 29行：`fileNameStr = args.fileName`
+    - 297行：`if filename == fileNameStr`
+* 修改 `print` 规则
+    * 注释 413 行：`print(P, file=sys.stderr)`
+    * 增加代码 414 行：print(P)
 
 # References
 * http://patrignani.dia.uniroma3.it/large-k-plexes/
 * https://github.com/ddfir/kplexes-meta
+* https://snap.stanford.edu/snappy/
+* https://github.com/joey001/splex-big
