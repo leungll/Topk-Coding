@@ -290,7 +290,7 @@ def experiments():
 
     all_files = (os.path.join(basedir, filename) for basedir, dirs, files in os.walk(indir) for filename in files)
     sorted_files = sorted(all_files, key = os.path.getsize)
-    print(sorted_files)
+    # print(sorted_files)
 
     # print(fileNameStr)
     for filename in sorted_files:

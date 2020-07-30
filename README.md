@@ -96,6 +96,7 @@ g++ -std=c++11 Coding.cpp -o Coding
         print("%s started %d threads (batch_size=%d, procnum=%d)" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i+1, batch_size, procnum), file = sys.stderr)
         ```
     - 250行：`print("%s ended thread %d" % (datetime.today().strftime('%Y-%m-%d %H:%M:%S'), i), file = sys.stderr)`
+    - 293行：`print(sorted_files)`
 * `k` 从命令行接收：
     - 27行：`k_cmd = args.k`
     - 304行：`for k in [k_cmd]`
