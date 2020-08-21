@@ -46,17 +46,17 @@ g++ -std=c++11 Coding.cpp -o Coding
 ./Coding XXX.input_file k
 ```
 
-后台运行：
-```
-./Coding XXX.input_file k & 
-python3 kplexes.py --k=XXX --m=0 --fileName=XXX.input_file > ans/XXX.txt &
-```
+- 后台运行
+    ```
+    ./Coding XXX.input_file k & 
+    python3 kplexes.py --k=XXX --m=0 --fileName=XXX.input_file > ans/XXX.txt &
+    ```
 
-查看进程：
-```
-ps -ef | grep Coding
-ps -ef | grep kplexes.py
-```
+- 查看进程：
+    ```
+    ps -ef | grep Coding
+    ps -ef | grep kplexes.py
+    ```
 
 # Common Commands
 * 查看版本当前**操作系统内核**信息：`uname -a`
