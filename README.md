@@ -30,7 +30,6 @@ This project contains the software used in the paper "Fast Enumeration of Large 
         tar zxvf snap-stanford-5.0.0-5.0-ubuntu18.04.2-x64-py2.7.tar.gz
         cd snap-stanford-5.0.0-5.0-ubuntu18.04.2-x64-py2.7
         sudo python2.X setup.py install
-
         ```
 
         ![Snap.py-on-Linux](https://cdn.jsdelivr.net/gh/leungll/ImgHosting/img/Snap.py-on-Linux.jpg)
@@ -45,6 +44,18 @@ mkdir input_data_c
 mkdir ans
 g++ -std=c++11 Coding.cpp -o Coding
 ./Coding XXX.input_file k
+```
+
+后台运行：
+```
+./Coding XXX.input_file k & 
+python3 kplexes.py --k=XXX --m=0 --fileName=XXX.input_file > ans/XXX.txt &
+```
+
+查看进程：
+```
+ps -ef | grep Coding
+ps -ef | grep kplexes.py
 ```
 
 # Common Commands
@@ -76,7 +87,7 @@ g++ -std=c++11 Coding.cpp -o Coding
     - 豆瓣源（ python 指定 pip ）：`python -m pip install 包名  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com`
 
 # Pay Attention
-* `Coding.cpp` 中的 `ss_python_cmd` 文件后缀名要与 `kplexes.py` 中的 `extension` 匹配
+* `Coding.cpp` 中的 `ss_python_cmd` 文件后缀名(1115行)要与 `kplexes.py` 中的 `extension` (33行)匹配
 * 执行命令前需要创建 `5` 个文件夹，否则会报错
 
     - mkdir working_dir
