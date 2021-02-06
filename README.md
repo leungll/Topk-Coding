@@ -123,7 +123,7 @@ g++ -std=c++11 Coding.cpp -o Coding
     * 增加代码 414 行：print(P)
 
 # References
-* http://patrignani.dia.uniroma3.it/large-k-plexes/
+* http://patrignani.dia.uniroma3.it/large-k-plexes
 * https://github.com/ddfir/kplexes-meta
-* https://snap.stanford.edu/snappy/
+* https://snap.stanford.edu/snappy
 * https://github.com/joey001/splex-big
