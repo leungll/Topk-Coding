@@ -1,7 +1,9 @@
 # Topk-Coding
+![GitHub last commit](https://img.shields.io/github/last-commit/leungll/Topk-Coding?color=9cf&style=flat-square)
 ![maven](https://img.shields.io/badge/C%2B%2B11-passing-red)
 ![maven](https://img.shields.io/badge/python2-passing-yellow)
 ![maven](https://img.shields.io/badge/python3-passing-blue)
+![GitHub](https://img.shields.io/github/license/leungll/Topk-Coding?color=orange&style=flat-square)
 
 This project contains the software used in the paper "Fast Enumeration of Large k-Plexes" authored by Alessio Conte, Donatella Firmani, Caterina Mordente, Maurizio Patrignani, and Riccardo Torlone and published at the 23rd SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2017).
 
