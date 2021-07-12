@@ -25,7 +25,7 @@ This project contains the software used in the paper "Fast Enumeration of Large 
         ```
 * 安装 **[snap.py](https://snap.stanford.edu/snappy/)** 库
     - 可直接命令行安装：`pip install snap-stanford`
-    - 下载：**https://snap.stanford.edu/snappy/release/**
+    - 下载：**https://snap.stanford.edu/snappy/release**
     - 执行安装 **( e.g. `ubtuntu 18.04 & py2.7` )**：
 
         ```
