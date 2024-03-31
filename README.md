@@ -1,4 +1,4 @@
-# Topk-Coding
+# TopK-Coding
 ![GitHub last commit](https://img.shields.io/github/last-commit/leungll/Topk-Coding?color=9cf&style=flat-square)
 ![maven](https://img.shields.io/badge/C%2B%2B11-passing-red)
 ![maven](https://img.shields.io/badge/python2-passing-yellow)
