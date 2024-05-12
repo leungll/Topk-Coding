@@ -33,8 +33,8 @@ This project contains the software used in the paper "Fast Enumeration of Large 
         cd snap-stanford-5.0.0-5.0-ubuntu18.04.2-x64-py2.7
         sudo python2.X setup.py install
         ```
-
-        ![Snap.py-on-Linux](https://cdn.jsdelivr.net/gh/leungll/ImgHosting/img/Snap.py-on-Linux.jpg)
+        
+        ![snap.py-on-linux](https://cdn.jsdelivr.net/gh/leungll/MyImgHosting/img/snap.py-on-linux.jpg)
 # Compile & Run
 
 ```
